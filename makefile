@@ -3,7 +3,7 @@
 #
 .SUFFIXES: .cpp .o .c .h
 
-CFLAGS = -fPIC -march=native -std=c99 -O3 -Wall -Wextra -Wno-unused-parameter -pedantic
+CFLAGS = -fPIC -march=native -std=c99 -O3 -Wall -Wextra -pedantic
 LDFLAGS = -shared
 LIBNAME=libmaskedvbyte.so.0.0.1
 all:  unit $(LIBNAME)
