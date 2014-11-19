@@ -1,7 +1,8 @@
 
 #ifndef VARINTDECODE_H_
 #define VARINTDECODE_H_
-
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
 #include <stdint.h>// please use a C99-compatible compiler
 #include <stddef.h>
 
