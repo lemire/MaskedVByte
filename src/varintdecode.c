@@ -858,12 +858,7 @@ static uint64_t masked_vbyte_read_group(const uint8_t* in, uint32_t* out,
 	uint64_t consumed = combined.bytes_consumed;
 	uint8_t index = combined.index;
 
-	// Slightly slower to use combined than to lookup individually?
-	// uint64_t consumed = bytes_consumed[low_12_bits];
-	// uint8_t index = vec_lookup[low_12_bits];
-
 	__m128i shuffle_vector = vectors[index];
-	//	__m128i shuffle_vector = {0, 0};  // speed check: 20% faster at large, less at small
 
 	if (index < 64) {
 		*ints_read = 6;
@@ -971,7 +966,6 @@ static uint64_t masked_vbyte_read_group_delta(const uint8_t* in, uint32_t* out,
 	uint8_t index = combined.index;
 
 	__m128i shuffle_vector = vectors[index];
-	//	__m128i shuffle_vector = {0, 0};  // speed check: 20% faster at large, less at small
 
 	if (index < 64) {
 		*ints_read = 6;
@@ -989,7 +983,6 @@ static uint64_t masked_vbyte_read_group_delta(const uint8_t* in, uint32_t* out,
 		__m128i unpacked_result_b = _mm_srli_epi32(packed_result, 16);
 		*prev = PrefixSum2ints(unpacked_result_b, *prev);
         _mm_storel_epi64(mout + 1, *prev);	
-//	_mm_storeu_si128(mout + 1, *prev);
 		return consumed;
 	}
 	if (index < 145) {
@@ -1026,8 +1019,7 @@ static uint64_t masked_vbyte_read_group_delta(const uint8_t* in, uint32_t* out,
 			_mm_setr_epi8(0, 2, 4, 6, 8, 10, 12, 14, -1, -1, -1, -1, -1, -1, -1,
 					-1));
 	*prev = PrefixSum2ints(result, *prev);
-	//_mm_storeu_si128(mout, *prev);
-        _mm_storel_epi64(mout, *prev);
+    _mm_storel_epi64(mout, *prev);
 	return consumed;
 }
 
@@ -1119,7 +1111,6 @@ static int read_int_group(const uint8_t* in, uint32_t* out, int* ints_read) {
 // len_signed : number of ints we want to decode
 size_t masked_vbyte_decode(const uint8_t* in, uint32_t* out,
 		uint64_t length) {
-	//uint64_t length = (uint64_t) len_signed; // number of ints we want to decode
 	size_t consumed = 0; // number of bytes read
 	uint64_t count = 0; // how many integers we have read so far
 
