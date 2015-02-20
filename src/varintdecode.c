@@ -914,6 +914,7 @@ static uint64_t masked_vbyte_read_group(const uint8_t* in, uint32_t* out,
 
 	return consumed;
 }
+
 __m128i PrefixSum(__m128i curr, __m128i prev) {
 	__m128i Add = _mm_slli_si128(curr, 4);  // Cycle 1: [- A B C] (already done)
 	prev = _mm_shuffle_epi32(prev, 0xff); // Cycle 2: [P P P P]
