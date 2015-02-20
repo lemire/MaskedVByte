@@ -25,8 +25,8 @@ Short code sample:
         size_t compsize2 = masked_vbyte_decode(compressedbuffer, recovdata, N); // decoding (fast)
 
 
-== Reference ==
-
+Reference
+-------------
 
 Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding, 
 International Symposium on Web Algorithms 2015, 2015.
