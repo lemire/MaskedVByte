@@ -1,5 +1,6 @@
 MaskedVByte
 ===========
+[![Build Status](https://travis-ci.org/lemire/MaskedVByte.png)](https://travis-ci.org/lemire/MaskedVByte)
 
 Fast decoder for VByte-compressed integers in C.
 
