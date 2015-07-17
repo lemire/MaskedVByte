@@ -31,5 +31,5 @@ Reference
 
 Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding, 
 International Symposium on Web Algorithms 2015, 2015.
-
+http://arxiv.org/abs/1503.07387
 
