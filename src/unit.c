@@ -45,7 +45,7 @@ int main() {
 
 		}
 		printf("Delta VByte \n");
-		for (uint32_t gap = 1; gap <= 387420489; gap *= 3) {
+		for (size_t gap = 1; gap <= 531441; gap *= 3) {
 			for (int k = 0; k < length; ++k)
 				datain[k] = gap * k;
 			size_t compsize = vbyte_encode_delta(datain, length, compressedbuffer,0);
