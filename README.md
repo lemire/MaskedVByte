@@ -12,6 +12,7 @@ with most x64 processors (supporting SSE instruction sets).
 The code should build using most C compilers. The provided makefile
 expects a Linux-like system.
 
+
 Usage:
 
       make
@@ -32,4 +33,6 @@ Reference
 Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding, 
 International Symposium on Web Algorithms 2015, 2015.
 http://arxiv.org/abs/1503.07387
+
+
 
