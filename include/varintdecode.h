@@ -6,7 +6,7 @@
 #include <stdint.h>// please use a C99-compatible compiler
 #include <stddef.h>
 
-// This function must be called once to initialized tables before using the other functions below
+// This function must be called once to initialize tables before using the other functions below
 void simdvbyteinit(void);
 
 // Read "length" 32-bit integers in varint format from in, storing the result in out.  Returns the number of bytes read.
