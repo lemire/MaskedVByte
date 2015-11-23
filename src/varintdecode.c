@@ -268,7 +268,7 @@ static int read_int(const uint8_t* in, uint32_t* out) {
 	return 5;
 }
 
-static int read_int_delta(const uint8_t* in, uint32_t* out, uint32_t* prev) {
+static inline int read_int_delta(const uint8_t* in, uint32_t* out, uint32_t* prev) {
 	*out = in[0] & 0x7F;
 	if (in[0] < 128) {
 		*prev += *out;
@@ -915,7 +915,7 @@ static uint64_t masked_vbyte_read_group(const uint8_t* in, uint32_t* out,
 	return consumed;
 }
 
-__m128i PrefixSum(__m128i curr, __m128i prev) {
+static inline __m128i PrefixSum(__m128i curr, __m128i prev) {
 	__m128i Add = _mm_slli_si128(curr, 4);  // Cycle 1: [- A B C] (already done)
 	prev = _mm_shuffle_epi32(prev, 0xff); // Cycle 2: [P P P P]
 	curr = _mm_add_epi32(curr, Add);                    // Cycle 2: [A AB BC CD]
@@ -926,7 +926,7 @@ __m128i PrefixSum(__m128i curr, __m128i prev) {
 }
 
 // only the first two ints of curr are meaningful, rest is garbage to beignored
-__m128i PrefixSum2ints(__m128i curr, __m128i prev) {
+static inline __m128i PrefixSum2ints(__m128i curr, __m128i prev) {
 	__m128i Add = _mm_slli_si128(curr, 4);  // Cycle 1: [- A B G] (already done)
 	prev = _mm_shuffle_epi32(prev, 0xff);                // Cycle 2: [P P P P]
 	curr = _mm_add_epi32(curr, Add);                    // Cycle 2: [A AB BG GG]
@@ -983,7 +983,7 @@ static uint64_t masked_vbyte_read_group_delta(const uint8_t* in, uint32_t* out,
 		_mm_storeu_si128(mout, *prev);
 		__m128i unpacked_result_b = _mm_srli_epi32(packed_result, 16);
 		*prev = PrefixSum2ints(unpacked_result_b, *prev);
-        _mm_storel_epi64(mout + 1, *prev);	
+        _mm_storel_epi64(mout + 1, *prev);
 		return consumed;
 	}
 	if (index < 145) {
@@ -1755,9 +1755,3 @@ size_t masked_vbyte_decode_fromcompressedsize_delta(const uint8_t* in, uint32_t*
 	}
 	return out - initout;
 }
-
-
-
-
-
-
