@@ -6,7 +6,6 @@
 #include "varintdecode.h"
 
 int main() {
-	simdvbyteinit(); // this must always be called once
 	int N = 5000;
 	uint32_t * datain = malloc(N * sizeof(uint32_t));
 	uint8_t * compressedbuffer = malloc(N * sizeof(uint32_t));
