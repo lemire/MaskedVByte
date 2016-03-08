@@ -1161,7 +1161,7 @@ size_t masked_vbyte_decode(const uint8_t* in, uint32_t* out,
 		nextSig |= lowSig;
 		scanned += 48;
 
-		do {	
+		do {
                         uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -1286,7 +1286,7 @@ size_t masked_vbyte_decode_fromcompressedsize(const uint8_t* in, uint32_t* out,
 		nextSig |= lowSig;
 		scanned += 48;
 
-		while (scanned + 48 <= inputsize) {  // 96 == 48 + 48 ahead for scanning
+		do {
 			uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -1327,7 +1327,7 @@ size_t masked_vbyte_decode_fromcompressedsize(const uint8_t* in, uint32_t* out,
 				consumed += bytes;
 				out += ints_read;
 			}
-		}
+		} while (scanned + 112 < inputsize);  // 112 == 48 + 48 ahead for scanning + up to 16 remaining in sig
 		sig = (nextSig << (scanned - consumed - 48)) | sig;
 		availablebytes = scanned - consumed;
 	}
@@ -1528,7 +1528,7 @@ size_t masked_vbyte_decode_delta(const uint8_t* in, uint32_t* out,
 		nextSig |= lowSig;
 		scanned += 48;
 
-		while (count + 96 < length) {  // 96 == 48 + 48 ahead for scanning
+		do {
 			uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -1569,7 +1569,7 @@ size_t masked_vbyte_decode_delta(const uint8_t* in, uint32_t* out,
 				consumed += bytes;
 				count += ints_read;
 			}
-		}
+		} while (count + 112 < length);  // 112 == 48 + 48 ahead for scanning + up to 16 remaining in sig
 		sig = (nextSig << (scanned - consumed - 48)) | sig;
 		availablebytes = scanned - consumed;
 	}
@@ -1674,7 +1674,7 @@ size_t masked_vbyte_decode_fromcompressedsize_delta(const uint8_t* in, uint32_t*
 		nextSig |= lowSig;
 		scanned += 48;
 
-		while (scanned + 48 <= inputsize) {  // 96 == 48 + 48 ahead for scanning
+		do {
 			uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -1715,7 +1715,7 @@ size_t masked_vbyte_decode_fromcompressedsize_delta(const uint8_t* in, uint32_t*
 				consumed += bytes;
 				out += ints_read;
 			}
-		}
+		} while (scanned + 112 < inputsize);  // 112 == 48 + 48 ahead for scanning + up to 16 remaining in sig
 		sig = (nextSig << (scanned - consumed - 48)) | sig;
 		availablebytes = scanned - consumed;
 	}
@@ -1963,7 +1963,7 @@ int masked_vbyte_search_delta(const uint8_t *in, uint64_t length, uint32_t prev,
         nextSig |= lowSig;
         scanned += 48;
 
-        while (count + 96 < length) {  // 96 == 48 + 48 ahead for scanning
+        do {
             uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -2007,7 +2007,7 @@ int masked_vbyte_search_delta(const uint8_t *in, uint64_t length, uint32_t prev,
                 consumed += bytes;
                 count += ints_read;
             }
-        }
+        } while (count + 112 < length);  // 112 == 48 + 48 ahead for scanning + up to 16 remaining in sig
         sig = (nextSig << (scanned - consumed - 48)) | sig;
         availablebytes = scanned - consumed;
     }
@@ -2197,7 +2197,7 @@ uint32_t masked_vbyte_select_delta(const uint8_t *in, uint64_t length,
         nextSig |= lowSig;
         scanned += 48;
 
-        while (count + 96 < length) {  // 96 == 48 + 48 ahead for scanning
+        do {
             uint64_t thisSig = nextSig;
 
 #ifdef __AVX2__
@@ -2242,7 +2242,7 @@ uint32_t masked_vbyte_select_delta(const uint8_t *in, uint64_t length,
                 consumed += bytes;
                 count += ints_read;
             }
-        }
+        } while (count + 112 < length);  // 112 == 48 + 48 ahead for scanning + up to 16 remaining in sig
         sig = (nextSig << (scanned - consumed - 48)) | sig;
         availablebytes = scanned - consumed;
     }
