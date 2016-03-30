@@ -27,6 +27,14 @@ Short code sample:
         size_t compsize2 = masked_vbyte_decode(compressedbuffer, recovdata, N); // decoding (fast)
 
 
+Interesting applications 
+-----------------------
+
+Greg Bowyer has integrated Masked VByte into Lucene, for higher speeds :
+
+https://github.com/GregBowyer/lucene-solr/tree/intrinsics
+
+
 Reference
 -------------
 
