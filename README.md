@@ -22,10 +22,11 @@ See example.c for an example.
 
 Short code sample:
 
-        size_t compsize = vbyte_encode(datain, N, compressedbuffer); // encoding
-        // here the result is stored in compressedbuffer using compsize bytes
-        size_t compsize2 = masked_vbyte_decode(compressedbuffer, recovdata, N); // decoding (fast)
-
+```C
+size_t compsize = vbyte_encode(datain, N, compressedbuffer); // encoding
+// here the result is stored in compressedbuffer using compsize bytes
+size_t compsize2 = masked_vbyte_decode(compressedbuffer, recovdata, N); // decoding (fast)
+```
 
 Interesting applications 
 -----------------------
@@ -42,5 +43,12 @@ Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding,
 International Symposium on Web Algorithms 2015, 2015.
 http://arxiv.org/abs/1503.07387
 
+
+See also
+------------
+
+https://github.com/lemire/streamvbyte
+
+https://github.com/lemire/simdcomp
 
 
