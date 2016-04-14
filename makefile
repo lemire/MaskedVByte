@@ -22,7 +22,7 @@ HEADERS=./include/varintdecode.h ./include/varintencode.h
 uninstall:
 	for h in $(HEADERS) ; do rm  /usr/local/$$h; done
 	rm  /usr/local/lib/$(LIBNAME)
-	rm /usr/local/lib/libbmaskedvbyte.so
+	rm /usr/local/lib/libmaskedvbyte.so
 	ldconfig
 
 
@@ -46,10 +46,10 @@ $(LIBNAME): $(OBJECTS)
 example: ./example.c    $(HEADERS) $(OBJECTS)
 	$(CC) $(CFLAGS) -o example ./example.c -Iinclude  $(OBJECTS)
 
-unit: ./src/unit.c    $(HEADERS) $(OBJECTS)
-	$(CC) $(CFLAGS) -o unit ./src/unit.c -Iinclude  $(OBJECTS)
-dynunit: ./src/unit.c    $(HEADERS) $(LIBNAME)
-	$(CC) $(CFLAGS) -o dynunit ./src/unit.c -Iinclude  -lsimdcomp 
+unit: ./tests/unit.c    $(HEADERS) $(OBJECTS)
+	$(CC) $(CFLAGS) -o unit ./tests/unit.c -Iinclude  $(OBJECTS)
+dynunit: ./tests/unit.c    $(HEADERS) $(LIBNAME)
+	$(CC) $(CFLAGS) -o dynunit ./tests/unit.c -Iinclude  -lsimdcomp 
 
 clean: 
 	rm -f unit *.o $(LIBNAME) example
