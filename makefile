@@ -49,7 +49,7 @@ example: ./example.c    $(HEADERS) $(OBJECTS)
 unit: ./tests/unit.c    $(HEADERS) $(OBJECTS)
 	$(CC) $(CFLAGS) -o unit ./tests/unit.c -Iinclude  $(OBJECTS)
 dynunit: ./tests/unit.c    $(HEADERS) $(LIBNAME)
-	$(CC) $(CFLAGS) -o dynunit ./tests/unit.c -Iinclude  -lsimdcomp 
+	$(CC) $(CFLAGS) -o dynunit ./tests/unit.c -Iinclude  -lmaskedvbyte 
 
 clean: 
 	rm -f unit *.o $(LIBNAME) example
