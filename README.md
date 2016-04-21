@@ -47,8 +47,8 @@ http://arxiv.org/abs/1503.07387
 See also
 ------------
 
-https://github.com/lemire/streamvbyte
-
-https://github.com/lemire/simdcomp
+* libvbyte: A fast implementation for varbyte 32bit/64bit integer compression https://github.com/cruppstahl/libvbyte
+* https://github.com/lemire/streamvbyte
+* https://github.com/lemire/simdcomp
 
 
