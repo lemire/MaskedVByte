@@ -6,6 +6,10 @@
 #include <stdint.h>// please use a C99-compatible compiler
 #include <stddef.h>
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+	
 // Read "length" 32-bit integers in varint format from in, storing the result in out.  Returns the number of bytes read.
 size_t masked_vbyte_decode(const uint8_t* in, uint32_t* out, uint64_t length);
 
@@ -27,5 +31,9 @@ uint32_t masked_vbyte_select_delta(const uint8_t *in, uint64_t length,
 // return the position of the first value >= key, assumes differential-coded values
 int masked_vbyte_search_delta(const uint8_t *in, uint64_t length, uint32_t prev,
                     uint32_t key, uint32_t *presult);
+
+#if defined(__cplusplus)
+};
+#endif
 
 #endif /* VARINTDECODE_H_ */
