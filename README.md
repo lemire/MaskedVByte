@@ -1,6 +1,8 @@
 MaskedVByte
 ===========
 [![Build Status](https://travis-ci.org/lemire/MaskedVByte.png)](https://travis-ci.org/lemire/MaskedVByte)
+[![Code Quality: Cpp](https://img.shields.io/lgtm/grade/cpp/g/lemire/MaskedVByte.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lemire/MaskedVByte/context:cpp)
+
 
 Fast decoder for VByte-compressed integers in C.
 
