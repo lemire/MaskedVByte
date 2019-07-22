@@ -41,7 +41,7 @@ https://github.com/GregBowyer/lucene-solr/tree/intrinsics
 Reference
 -------------
 
-* Daniel Lemire, Nathan Kurz, Christoph Rupp, Stream VByte: Faster Byte-Oriented Integer Compression, Information Processing Letters (to appear) https://arxiv.org/abs/1709.08990
+* Daniel Lemire, Nathan Kurz, Christoph Rupp, Stream VByte: Faster Byte-Oriented Integer Compression, Information Processing Letters 130, February 2018, Pages 1-6 https://arxiv.org/abs/1709.08990
 * Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding,  International Symposium on Web Algorithms 2015, 2015. http://arxiv.org/abs/1503.07387
 
 
