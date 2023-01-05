@@ -1,9 +1,7 @@
-
 #ifndef VARINTDECODE_H_
 #define VARINTDECODE_H_
-#define __STDC_FORMAT_MACROS
-#include <inttypes.h>
-#include <stdint.h>// please use a C99-compatible compiler
+
+#include <stdint.h>
 #include <stddef.h>
 
 #if defined(__cplusplus)
@@ -33,7 +31,7 @@ int masked_vbyte_search_delta(const uint8_t *in, uint64_t length, uint32_t prev,
                     uint32_t key, uint32_t *presult);
 
 #if defined(__cplusplus)
-};
+}
 #endif
 
 #endif /* VARINTDECODE_H_ */
