@@ -8,8 +8,7 @@ Fast decoder for VByte-compressed integers in C.
 
 It includes fast differential coding.
 
-It assumes a recent Intel processor (e.g., haswell) but should work
-with most x64 processors (supporting SSE instruction sets).
+We require x64 processors support SSE 4.1 or better. This includes virtually all x64 processors in service today, except for very old or specialized processors.
 
 The code should build using most standard-compliant modern C compilers (C99). The provided makefile
 expects a Linux-like system.
