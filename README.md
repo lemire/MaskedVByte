@@ -1,7 +1,6 @@
 MaskedVByte
 ===========
-[![Build Status](https://travis-ci.org/lemire/MaskedVByte.png)](https://travis-ci.org/lemire/MaskedVByte)
-[![Code Quality: Cpp](https://img.shields.io/lgtm/grade/cpp/g/lemire/MaskedVByte.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lemire/MaskedVByte/context:cpp)
+[![Ubuntu 22.04 CI (GCC 11)](https://github.com/lemire/MaskedVByte/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/lemire/MaskedVByte/actions/workflows/ubuntu.yml)
 
 
 Fast decoder for VByte-compressed integers in C.
