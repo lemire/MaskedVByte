@@ -1,7 +1,7 @@
 #include "varintencode.h"
 
 
-size_t vbyte_encode_delta(uint32_t *in, size_t length, uint8_t *bout, uint32_t prev) {
+size_t vbyte_encode_delta(const uint32_t *in, size_t length, uint8_t *bout, uint32_t prev) {
 	uint8_t *initbout = bout;
 	for (size_t k = 0; k < length; ++k) {
 		const uint32_t val = in[k] - prev;
@@ -46,7 +46,7 @@ size_t vbyte_encode_delta(uint32_t *in, size_t length, uint8_t *bout, uint32_t p
 	return bout - initbout;
 }
 
-size_t vbyte_encode(uint32_t *in, size_t length, uint8_t *bout) {
+size_t vbyte_encode(const uint32_t *in, size_t length, uint8_t *bout) {
 	uint8_t *initbout = bout;
 	for (size_t k = 0; k < length; ++k) {
 		const uint32_t val = in[k];
