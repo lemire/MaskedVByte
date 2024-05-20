@@ -2246,8 +2246,6 @@ uint32_t masked_vbyte_select_delta(const uint8_t *in, uint64_t length,
         availablebytes = scanned - consumed;
     }
     while (availablebytes + count < length) {
-        if (availablebytes < 16) break;
-
         if (availablebytes < 16) {
             if (availablebytes + count + 31 < length) {
 #ifdef __AVX2__
