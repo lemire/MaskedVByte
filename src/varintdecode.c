@@ -1573,8 +1573,6 @@ size_t masked_vbyte_decode_delta(const uint8_t* in, uint32_t* out,
 		availablebytes = scanned - consumed;
 	}
 	while (availablebytes + count < length) {
-		if (availablebytes < 16) break;
-
 		if (availablebytes < 16) {
 			if (availablebytes + count + 31 < length) {
 #ifdef __AVX2__
